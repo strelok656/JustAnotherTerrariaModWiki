@@ -1,6 +1,45 @@
 .heebo-font {
   font-family: "Heebo", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
+}
+
+.heebo-font-fat {
+  font-family: "Heebo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+ul, li
+{
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.header
+{
+  background-image: url(10.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 10px;
+}
+
+.menu
+{
+  margin-top: 8px;
+}
+
+.menu__item
+{
+  margin: 0 57px;
+}
+
+.menu__item a
+{
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
 }
