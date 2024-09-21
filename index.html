@@ -14,27 +14,30 @@
 	<script type="text/javascript" src="bootstrap.bundle.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
 	<title>Just Another Terraria Mod Wiki</title>
 </head>
 <header>
-	<div class="container" class="heebo-font">
+	<div class="container interesting" class="heebo-font">
 		<div class="col-sm ml-auto">
 			<nav>
 				<ul class="menu d-flex justify-content-center">
 					<li class="menu__item">
-						<a href="index.html">
+						<a class="a" href="index.html">
 							JATM Wiki
 						</a>
 					</li>					
 
 					<li class="menu__item">
-						<a href="#">
+						<a class="a" href="#">
 							Login
 						</a>
 					</li>
 
 					<li class="menu__item">
-						<a href="#">
+						<a class="a" href="#">
 							Create an account
 						</a>
 					</li>
@@ -51,17 +54,129 @@
 	<div class="container">
 		<div class="row">
 			<img src="11.png">
-			<div class="col-sm mt-3">
-				<h1>Just Another Terraria Mod</h1>
+			<div class="col-sm mt-3 ">
+				<h1 class="show-up-text">Just Another Terraria Mod</h1>
 				Welcome to the official
-				<b class="heebo-font-fat"> Just Another Terraria Mod Wiki</b>, written and supported by 
+				<b class="show-up-text heebo-font-fat"> Just Another Terraria Mod Wiki</b>,
+				 written and supported by
 				<b class="heebo-font-fat">me</b>
 			</div>
 		</div>
-
-		<div class="row">
-			
-		</div>
 	</div>
+
+		<section class="interesting">
+		<div class="container"> 
+
+			<!--заголовок -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title">
+						<h2 class="title_main"> Характеристики </h2>
+						<p class="title_text"> В этом разделе мы расскажем вам, основные характеристики даного сайта-визитки </p>
+					</div>
+				</div>
+			</div>
+
+			<!--Текст -->
+
+			<div class="row">
+				<div class="col-lg-4">
+	                    <div class="feature d-flex">
+	                        <!-- <i class="fa fa-tablet feature__icon"></i> -->
+	                        <p class="emoji">💻</p>
+	                        <div class="feature__block">
+	                            <h3 class="feature__title">
+	                                Адаптивность
+	                            </h3>
+	                            <p class="feature__text">
+	                                Сайт подходит под любое устройство и расширение экрана. 
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <div class="col-lg-4">
+	                    <div class="feature d-flex">
+	                        <!-- <i class="fa fa-lemon-o feature__icon"></i> -->
+	                        <p class="emoji">💻</p>
+	                        <div class="feature__block">
+	                            <h3 class="feature__title">
+	                                Все элеметы в PSD
+	                            </h3>
+	                            <p class="feature__text">
+	                               Удобный для верстки сайт. Все элементы есть в PSD формате. 
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <div class="col-lg-4">
+	                    <div class="feature d-flex">
+	                        <!-- <i class="fa fa-folder-o feature__icon"></i> -->
+	                        <p class="emoji">💻</p>
+	                        <div class="feature__block">
+	                            <h3 class="feature__title">
+	                                Потрясающие иконки
+	                            </h3>
+	                            <p class="feature__text">
+	                                В приложени к файлу можно найти все необходимые иконки. 
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+
+                <div class="row">
+					<div class="col-lg-4">
+	                    <div class="feature d-flex">
+	                        <!-- <i class="fa fa-code feature__icon"></i> -->
+	                        <p class="emoji">💻</p>
+	                        <div class="feature__block">
+	                            <h3 class="feature__title">
+	                                HTML & CSS
+	                            </h3>
+	                            <p class="feature__text">
+	                                Сайт легко сверстать с помощью HTML и CSS. 
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <div class="col-lg-4">
+	                    <div class="feature d-flex">
+	                        <!-- <i class="fa fa-envelope-o  feature__icon"></i> -->
+	                        <p class="emoji">💻</p>
+	                        <div class="feature__block">
+	                            <h3 class="feature__title">
+	                               Обратная связь
+	                            </h3>
+	                            <p class="feature__text">
+	                               Сайт имеет раздел с обртаной связью. 
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <div class="col-lg-4">
+	                    <div class="feature d-flex">
+	                        <!-- <i class="fa fa-bookmark-o feature__icon"></i> -->
+	                        <p class="emoji">💻</p>
+	                        <div class="feature__block">
+	                            <h3 class="feature__title">
+	                                Интересно верстать
+	                            </h3>
+	                            <p class="feature__text">
+	                                Сайт имеет элементы, которые будет интересно верстать. 
+	                            </p>
+	                        </div>
+	                    </div>
+	            	</div>
+	            </div>
+	    </div>
+    </section>
 </body>
+
+<script type="text/javascript">
+	$('show-up-text').fadeTo(100, 0.0)
+</script>
 </html>
