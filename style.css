@@ -1,3 +1,8 @@
+.row {
+  margin-top: 5%;
+}
+
+/*  Шрифты*/
 .heebo-font {
   font-family: "Heebo", sans-serif;
   font-optical-sizing: auto;
@@ -12,19 +17,22 @@
   font-style: normal;
 }
 
+.first-look {
+  margin-top: 5%;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+/* navbar*/
+nav {
+  background-color: white;
+}
+
 ul, li
 {
   display: block;
   padding: 0;
   margin: 0;
-}
-
-.header
-{
-  background-image: url(10.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  padding: 10px;
 }
 
 .menu
@@ -42,22 +50,21 @@ ul, li
   font-size: 22px;
   font-weight: 700;
   color: #000;
-}
-
-.a
-{
   text-decoration: none;
 }
 
+  /* Градиенты*/
 #gradient-1 {
   background: linear-gradient(to right, violet, white);
 }
 
 #gradient-2 {
   background: linear-gradient(to left, orange, white);
-  margin-left: 64%;
+/*  margin-left: 10%;*/
+  width: 25%;
 }
 
+/* feedback поле*/
 .title {
   padding-top: 5%;
   padding-bottom: 5% ;
@@ -73,15 +80,12 @@ ul, li
   text-align: center;
 }
 
-.feedback {
-  background: #000;
-  color: #fff;
-}
-
-.blue {
-  color: #95d9fb;
-}
-
 #email-scam {
   width: 50%;
+}
+
+/* ПОДВАЛ*/
+.footer-info {
+  text-align: right;
+  margin-top: 5%;
 }
