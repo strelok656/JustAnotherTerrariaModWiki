@@ -27,7 +27,17 @@
 
 .show-up-text {
   margin-left: 20%;
-  background-image: ;
+}
+
+#forum {
+  background-color: dimgray;
+  border-radius: 10px;
+}
+
+.wiki-cards {
+  border-color: black;
+  border-radius: 5px;
+  margin: 5%;
 }
 
 /* navbar*/
@@ -67,8 +77,8 @@ ul, li
 
 #gradient-2 {
   background: linear-gradient(to left, orange, white);
-  margin-left: 10%;
-  width: 50%;
+  height: 90%;
+  width: 100%;
 }
 
 /* feedback поле*/
