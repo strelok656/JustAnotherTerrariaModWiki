@@ -1,0 +1,23 @@
+.row {
+  margin-top: 5%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/*  Шрифты*/
+.heebo-font {
+  font-family: "Heebo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.heebo-font-fat {
+  font-family: "Heebo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
