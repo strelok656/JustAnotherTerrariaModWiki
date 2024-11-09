@@ -2,6 +2,10 @@
   margin-top: 5%;
 }
 
+.margin {
+  margin: 3%;
+}
+
 a {
     text-decoration: none;
     color: white;
