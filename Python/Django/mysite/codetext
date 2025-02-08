@@ -1,0 +1,10 @@
+from polls.models import Choice, Question
+Question.objects.all()
+
+from django.utils import timezone
+
+q = Question(question_text='Что новенького?', pub_date=timezone.now())
+q.save()
+q.id
+
+q.question_text
