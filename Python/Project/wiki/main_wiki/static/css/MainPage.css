@@ -1,0 +1,41 @@
+.first-look {
+  margin-top: 5%;
+  margin-left: 0%;
+  background-color: gray;
+  border-radius: 10px;
+  width: 99%;
+}
+
+.show-up-text {
+  margin-left: 20%;
+}
+
+#forum {
+  background-color: dimgray;
+  border-radius: 10px;
+}
+
+.wiki-cards {
+  border-color: black;
+  border-width: 1%;
+  border-radius: 5px;
+  margin: 2%;
+}
+
+#interesting {
+  background-color: #FFFFF0;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  text-align: center;
+}
+
+  /* Градиенты*/
+#gradient-1 {
+  background: linear-gradient(to right, violet, white);
+}
+
+#gradient-2 {
+  background: linear-gradient(to left, orange, white);
+  height: 90%;
+  width: 100%;
+}

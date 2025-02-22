@@ -1,0 +1,17 @@
+#wiki-pages {
+  background-color: gray;
+  border-radius: 2%;
+}
+
+.wiki-text {
+  margin: 5%;
+  color: white;
+}
+
+b {
+  padding: 2%;
+}
+
+.craft {
+  border-radius: 5%;
+}
