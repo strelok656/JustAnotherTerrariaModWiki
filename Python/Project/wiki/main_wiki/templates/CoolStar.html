@@ -1,8 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="{% static 'Libraries/bootstrap.min.css' %}">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'Libraries/animate.min.css' %}"/>
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/Footer.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/Common.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/Navbar.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/WikiPages.css' %}">
+
+	<!-- Favicon -->
+	<link rel="icon" href="{% static 'img/SiteIcon.png' %}">
 
 	<title>JATM Вики - Прикольная Звезда</title>
 </head>
@@ -10,7 +31,7 @@
 	<div class="container" id="wiki-pages" style="padding: 2%;">
 		<div class="row">
 			<div class="col-sm-4 card bg-dark" style="width: 20%; margin: 2%;">
-				<img class="card-img-top" src="../img/CoolStar.png" alt="Cool Star" width="100%" height="100%">
+				<img class="card-img-top" src="{% static 'img/CoolStar.png' %}" alt="Cool Star" width="100%" height="100%">
 				<div class="card-body wiki-text">
 					<p>Ставится ли: нет</p>
 				</div>
@@ -31,7 +52,7 @@
 				<div class="cards bg-dark text-white craft">
 					<div class="card-body">
 						<b style="margin-left: 5%;">
-							<img src="../img/Crimtane_Ore.png"> 
+							<img src="{% static 'img/Crimtane_Ore.png' %}"> 
 							<a href="https://terraria.fandom.com/wiki/Crimtane_Ore">
 								Кримтановая Руда
 							</a>
@@ -39,14 +60,14 @@
 						x 10 
 						<br>
 						<b style="margin-left: 5%;">
-							<img src="../img/Fallen_Star.png"> 
+							<img src="{% static 'img/Fallen_Star.png' %}"> 
 							<a href="https://terraria.fandom.com/wiki/Fallen_Star">
 								Падшая Звезда
 							</a>
 						</b> 
 						х 1
 						<b style="margin-left: 15%;">
-							<img src="../img/Iron_Anvil.png"> 
+							<img src="{% static 'img/Iron_Anvil.png' %}"> 
 							<a href="https://terraria.fandom.com/wiki/Pre-Hardmode_Anvils">
 								Наковальня
 							</a>
@@ -66,7 +87,7 @@
 		</div>
 	</div>
 
-    <script type="text/javascript" src="../Libraries/jquery.js"></script>
-    <script type="text/javascript" src="Common.js"></script>
+    <script type="text/javascript" src="{% static 'Libraries/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Common.js' %}"></script>
 </body>
 </html>
