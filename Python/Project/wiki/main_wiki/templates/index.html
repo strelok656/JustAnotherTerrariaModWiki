@@ -17,44 +17,17 @@
 	<link rel="stylesheet" href="{% static 'Libraries/animate.min.css' %}"/>
 
 	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/MainPage.css' %}">
+
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Footer.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Common.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Navbar.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Feedback.css' %}">
-
+	<link rel="stylesheet" type="text/css" href="{% static 'css/MainPage.css' %}">
 	<!-- Favicon -->
 	<link rel="icon" href="{% static 'img/SiteIcon.png' %}">
 
 	<title>Just Another Terraria Mod Вики</title>
 </head>
-
-<nav class="navbar fixed-top">
-	<ul class="menu d-flex justify-content-center">
-		<li class="menu__item">
-			<a href="">
-				JATM Вики
-			</a>
-		</li>
-
-		<li class="menu__item">
-			<a href="account">
-				Логин
-			</a>
-		</li>
-
-		<li class="menu__item">
-			<a href="account">
-				Создать аккаунт
-			</a>
-		</li>
-
-		<li class="menu__item">
-			<input type="text" placeholder="Поиск">
-		</li>
-	</ul>
-</nav>
-
 <header>
 	<div class="col-sm">
 		<div class="row first-look">
@@ -206,35 +179,22 @@
         		<p class="title_text">
         			Оставьте свой e-mail адрес и мы не свяжемся с вами в ближайшее время
          		</p>
-         		<form action="" method="POST">
-         		<input id="email-scam" type="email" class="form-control" name="email">
+         		<form action="{% url 'feedback' %}" method="POST"> 
+					{% csrf_token %}
+         			<input id="email-scam" type="email" class="form-control" name="email" placeholder="Введите адрес электронной почты">
+					<button id="button-submit" class="btn btn-success">Отправить</button>
          		</form>
             </div>
         </div>
     </div>
 
-    <footer>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-lg-12">
-    				<div class="footer-info">
-    					Алмаз Г.
-    					<br>
-    					2024
-    					<br>
-    					Макет сайта на кружок Программисты
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </footer>
-
+	<!-- Bootstrap -->
 	<script type="text/javascript" src="{% static 'Libraries/bootstrap.bundle.min.js' %}"></script>
 
     <!-- JQuery -->
 	<script type="text/javascript" src="{% static 'Libraries/jquery.js' %}"></script>
 
-	<!-- Script -->
-	<script type="text/javascript" src="{% static 'script.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/Common.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/send.js' %}"></script>
 </body>
 </html>

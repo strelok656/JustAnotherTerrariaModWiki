@@ -17,3 +17,9 @@ def cool_star(request):
 
 def blooming_crimtane(request):
     return render(request, 'BloomingCrimtane.html')
+
+def feedback(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        print(f"Получен email: {email}")
+    return render(request, 'index.html')

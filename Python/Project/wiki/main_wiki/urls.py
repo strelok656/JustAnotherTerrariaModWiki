@@ -8,4 +8,5 @@ urlpatterns = [
     path('wiki-pages/AshSlicer/', views.ash_slicer, name='ash_slicer'),
     path('wiki-pages/CoolStar/', views.cool_star, name='cool_star'),
     path('wiki-pages/BloomingCrimtane/', views.blooming_crimtane, name='blooming_crimtane'),
+    path('feedback/', views.feedback, name="feedback"),
 ]
