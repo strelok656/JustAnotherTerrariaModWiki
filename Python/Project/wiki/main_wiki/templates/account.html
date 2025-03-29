@@ -10,20 +10,25 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'Libraries/bootstrap.min.css' %}">
 
 	<!-- Styles-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/Common.css' %}"><link rel="stylesheet" type="text/css" href="{% static 'css/Footer.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Common.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/Footer.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Navbar.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/Auth.css' %}">
 
 	<!-- Favicon -->
 	<link rel="icon" href="{% static 'img/SiteIcon.png' %}">
 
 </head>
-<body>
+<body class="">
 <div class="container">
 	<div class="row">
-		<div class="col-sm">
-			
-		</div>
+		<form method="POST" {% comment %} action="{% url 'auth' %}"{% endcomment %} class="col-sm-6 form-control auth-box"> 
+			{% csrf_token %}
+			<label class="form-label heebo-font-fat" for="auth-form">Создание аккаунта</label>
+			<input type="text" placeholder="Логин" name="username" id="username" class="auth-form form-control w-75">
+			<input type="password" placeholder="Пароль" name="password" id="password" class="auth-form form-control w-75">
+			<button class="btn btn-primary">Создать аккаунт</button> <button class="btn btn-secondary" style="margin-left: 47%;">Войти</button>
+		</form>
 	</div>
 </div>
 

@@ -1,0 +1,14 @@
+.auth-box 
+{
+    margin: 10%;
+    width: 40%;
+    height: 30%;
+    border: solid;
+    border-width: 2pt;
+    margin-left: 30%;
+}
+
+.auth-form 
+{
+    margin: 5%;
+}
