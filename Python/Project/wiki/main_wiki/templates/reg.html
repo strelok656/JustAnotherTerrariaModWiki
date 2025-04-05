@@ -22,15 +22,17 @@
 <body class="">
 <div class="container">
 	<div class="row">
-		{% comment %} <form method="POST" action="{% url 'account' %}" class="col-sm-6 form-control auth-box">  {% endcomment %}
 		<div class="form-control auth-box">
 			{% csrf_token %}
-			<label class="form-label heebo-font-fat" for="auth-form">Войти в аккаунт</label>
-			<input placeholder="Логин" type="text" name="username" id="username" class="auth-form form-control w-75">
-			<input placeholder="Пароль" type="password" name="password" id="password" class="auth-form form-control w-75">
-			<a href="{% url 'reg' %}"><button id="create-button"  class="btn btn-primary">Впервые на сайте?</button></a> <button id="login-button" class="btn btn-secondary" style="margin-left: 44%;">Войти</button>
+			<label class="form-label heebo-font-fat" for="auth-form">Создать аккаунт</label>
+			<input placeholder="Имя пользователя" type="text" name="username" id="username" class="auth-form form-control w-75">
+			<input placeholder="Пароль" type="text" name="password" id="password" class="auth-form form-control w-75">
+			<input placeholder="Имя" type="text" name="name" id="name" class="auth-form form-control w-75">
+			<input placeholder="Фамилия" type="text" name="lastName" id="lastName" class="auth-form form-control w-75">
+			<input placeholder="Почта" type="email" name="email" id="email" class="auth-form form-control w-75">
+
+			<button id="create-button" class="btn btn-primary">Создать аккаунт</button>
 		</div>
-		{% comment %} </form> {% endcomment %}
 	</div>
 </div>
 

@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse, HttpResponse
 from django.utils import timezone
+from django.contrib.auth import authenticate, login
 from .models import Wiki_pages
 
 def index(request):
@@ -37,6 +38,19 @@ def feedback(request):
 def wiki_page(request, wiki):
     wiki_page = get_object_or_404(Wiki_pages, pk = wiki)
 
-def auth(request):
-    body = json.loads(request.body)
+def account(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        print(f'login: {username}, password: {password}')
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            login(request, user)
+            return render(request, 'account.html')
+        else:
+            return JsonResponse({'status': 'error', 'message': 'Неверный логин и пароль'})
     return render(request, 'account.html')
+
+def reg(request):
+    return render(request, 'reg.html')
