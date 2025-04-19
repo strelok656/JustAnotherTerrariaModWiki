@@ -91,3 +91,55 @@ $('#login-button').click(function()
         }
     })
 })
+
+$('#create-account-button').click(function()
+{
+    const username = $('#username').val()
+    const password = $('#password').val()
+    const name = $('#name').val()
+    const last_name = $('#last-name').val()
+    const email = $('#email').val()
+    const csrf = $('[name=csrfmiddlewaretoken]').val();
+
+    if (!username)
+    {
+        alert("Пожалуйста, введите имя пользователя")
+        return
+    }
+    else if(!password)
+    {
+        alert("Пожалуйста, введите пароль")
+        return
+    }
+    else if (!email)
+    {
+        alert("Пожалуйста, введите электронную почту")
+        return
+    }
+
+    $.ajax(
+    {
+        url: '/registration/',
+        type: 'POST',
+        data:
+        {
+            'username': username,
+            'password': password,
+            'name': name,
+            'last_name': last_name,
+            'email': email,
+            'csrfmiddlewaretoken': csrf
+        },
+        dataType: 'json',
+
+        success: function(data)
+        {
+            console.log('Success: ', data)
+        },
+
+        error: function(error)
+        {
+            console.log('Error: ', error)
+        }
+    })
+})

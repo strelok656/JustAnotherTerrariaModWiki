@@ -26,9 +26,38 @@
 	<title>Just Another Terraria Mod Вики</title>
 </head>
 <header>
+
+	<nav class="navbar fixed-top">
+		<ul class="menu d-flex justify-content-center">
+			<li class="menu__item">
+				<a href="../../">
+					JATM Вики
+				</a>
+			</li>
+
+			{% if not name %}
+				<li class="menu__item">
+					<a href="../../account">
+						Логин
+					</a>
+				</li>
+		
+				<li class="menu__item">
+					<a href="../../registration">
+						Создать аккаунт
+					</a>
+				</li>
+			{% endif %}
+	
+			<li class="menu__item">
+				<input type="text" placeholder="Поиск">
+			</li>
+		</ul>
+	</nav>
+
 	<div class="col-sm">
 		<div class="row first-look">
-			<img src="{% static 'img/terraria-3.jpg' %}" style="margin-top: 1%; width: 100%; height: 100%; margin-left: 0%;">
+			<img alt="Terraria logo" src="{% static 'img/terraria-3.jpg' %}" style="margin-top: 1%; width: 100%; height: 100%; margin-left: 0%;">
 			<div class="col-sm-8 mt-3 show-up-text overlay">
 				<h1 style="margin-left: 20%;">Just Another Terraria Mod</h1>
 				Добро пожаловать на официальную
@@ -43,7 +72,7 @@
 	
 	<div class="row">
     	<div class="col-sm-4" id="gradient-1"></div>
-    	<img class="mr-3" src="{% static 'img/bunnies.png' %}" style="width: 30%; height: 40%;">
+    	<img alt="bunnies" class="mr-3" src="{% static 'img/bunnies.png' %}" style="width: 30%; height: 40%;">
     	<div class="col-sm" style="margin: 5%;">
     		<h3>
     			"Огромный" мод
@@ -65,7 +94,7 @@
 			</p>
     	 </div>
 	 	<div class="col-sm-4">
-	 		<img src="{% static 'img/magicweapon.png' %}" style="width: 90%; height: 90%;">
+	 		<img alt="magicweapon" src="{% static 'img/magicweapon.png' %}" style="width: 90%; height: 90%;">
 	 	</div>
 	 	<div class="col-sm-4">
 	 		<p id="gradient-2"></p>
@@ -82,7 +111,7 @@
 		<div class="row" align="center" style="margin-left: 8%;">
 			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
 				<div class="card-header">                      </div>
-				<img  class="card-img-top" src="{% static 'img/CoolStar.png' %}" alt="Star">
+				<img alt="CoolStar" class="card-img-top" src="{% static 'img/CoolStar.png' %}" alt="Star">
 				<div class="card-body">
 					<a href="wiki-pages/CoolStar" class="card-text" align="center">Прикольная Звезда</a>
 				</div>
@@ -90,7 +119,7 @@
 
 			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
 				<div class="card-header">                      </div>
-				<img class="card-img-top" src="{% static 'img/AshSlicer.png' %}" alt="AshSlicer">
+				<img alt="AshSlicer" class="card-img-top" src="{% static 'img/AshSlicer.png' %}" alt="AshSlicer">
 				<div class="card-body">
 					<a href="wiki-pages/AshSlicer" class="card-text" align="center">Пепельный Рассекатель</a>
 				</div>
@@ -98,7 +127,7 @@
 
 			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
 				<div class="card-header">                      </div>
-				<img class="card-img-top" src="{% static 'img/BloomingCrimtane.png' %}" alt="BloomingCrimtane">
+				<img alt="BloomingCrimtane" class="card-img-top" src="{% static 'img/BloomingCrimtane.png' %}" alt="BloomingCrimtane">
 				<div class="card-body">
 					<a href="wiki-pages/BloomingCrimtane" class="card-text" align="center">Цветущий Кримтан</a>
 				</div>
@@ -106,7 +135,7 @@
 
 			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
 				<div class="card-header">                      </div>
-				<img class="card-img-top" src="{% static 'img/Absorber.png' %}" alt="BloomingCrimtane">
+				<img alt="Absorber" class="card-img-top" src="{% static 'img/Absorber.png' %}" alt="BloomingCrimtane">
 				<div class="card-body">
 					<a href="wiki-pages/Absorber" class="card-text" align="center">Поглотитель</a>
 				</div>
@@ -120,7 +149,7 @@
     <!-- JQuery -->
 	<script type="text/javascript" src="{% static 'Libraries/jquery.js' %}"></script>
 
-	<!-- Script -->
+	<!-- Scripts -->
 	<script type="text/javascript" src="{% static 'js/Common.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/send.js' %}"></script>
 </body>
