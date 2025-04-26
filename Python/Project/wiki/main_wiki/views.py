@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.utils import timezone
 from django.contrib.auth import authenticate, login
@@ -11,24 +11,35 @@ def index(request):
     return render(request, 'index.html', context)
 
 def account(request):
-    return render(request, 'account.html')
+    name = request.user.username
+    context = {'name' : name}
+    return render(request, 'account.html', context)
 
 def absorber(request):
-    return render(request, 'Absorber.html')
+    name = request.user.username
+    context = {'name' : name}
+    return render(request, 'Absorber.html', context)
 
 def ash_slicer(request):
-    return render(request, 'AshSlicer.html')
+    name = request.user.username
+    context = {'name' : name}
+    return render(request, 'AshSlicer.html', context)
 
 def cool_star(request):
-    return render(request, 'CoolStar.html')
+    name = request.user.username
+    context = {'name' : name}
+    return render(request, 'CoolStar.html', context)
 
 def blooming_crimtane(request):
-    return render(request, 'BloomingCrimtane.html')
+    name = request.user.username
+    context = {'name' : name}
+    return render(request, 'BloomingCrimtane.html', context)
 
 def wiki_page(request, wiki):
     wiki_page = get_object_or_404(Wiki_pages, pk = wiki)
 
 def account(request):
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -56,6 +67,6 @@ def reg(request):
         user.save()
         login(request, user)
         context = {'name' : name}
-        return render(request, "index.html", context)
+        return redirect()
     
     return render(request, 'reg.html')

@@ -1,33 +1,3 @@
-// $("body").prepend(`
-// 	<nav class="navbar fixed-top">
-// 	<ul class="menu d-flex justify-content-center">
-// 		<li class="menu__item">
-// 			<a href="../../">
-// 				JATM Вики
-// 			</a>
-// 		</li>
-
-// 		<li class="menu__item">
-// 			<a href="../../account">
-// 				Логин
-// 			</a>
-// 		</li>
-
-// 		<li class="menu__item">
-// 			<a href="../../registration">
-// 				Создать аккаунт
-// 			</a>
-// 		</li>
-
-// 		<li class="menu__item">
-// 			<input type="text" placeholder="Поиск">
-// 		</li>
-// 	</ul>
-// </nav>
-
-
-`)
-
 $("body").append(`
 	<footer>
 	<div class="container">

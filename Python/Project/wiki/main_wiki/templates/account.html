@@ -19,10 +19,36 @@
 	<link rel="icon" href="{% static 'img/SiteIcon.png' %}">
 
 </head>
+<header>
+	<nav class="navbar fixed-top">
+		<ul class="menu d-flex justify-content-center">
+			<li class="menu__item">
+				<a href="../../">
+					JATM Вики
+				</a>
+			</li>
+
+			<li class="menu__item">
+				<a href="../../account">
+					Логин
+				</a>
+			</li>
+	
+			<li class="menu__item">
+				<a href="../../registration">
+					Создать аккаунт
+				</a>
+			</li>
+	
+			<li class="menu__item">
+				<input type="text" placeholder="Поиск">
+			</li>
+		</ul>
+	</nav>
+</header>
 <body class="">
 <div class="container">
 	<div class="row">
-		{% comment %} <form method="POST" action="{% url 'account' %}" class="col-sm-6 form-control auth-box">  {% endcomment %}
 		<div class="form-control auth-box">
 			{% csrf_token %}
 			<label class="form-label heebo-font-fat" for="auth-form">Войти в аккаунт</label>
@@ -30,7 +56,6 @@
 			<input placeholder="Пароль" type="password" name="password" id="password" class="auth-form form-control w-75">
 			<a href="{% url 'reg' %}"><button class="btn btn-primary">Впервые на сайте?</button></a> <button id="login-button" class="btn btn-secondary" style="margin-left: 44%;">Войти</button>
 		</div>
-		{% comment %} </form> {% endcomment %}
 	</div>
 </div>
 

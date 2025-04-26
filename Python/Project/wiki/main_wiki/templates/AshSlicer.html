@@ -13,9 +13,6 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="{% static 'Libraries/bootstrap.min.css' %}">
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="{% static 'Libraries/animate.min.css' %}"/>
-
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Footer.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Common.css' %}">
@@ -27,6 +24,35 @@
 
 	<title>JATM Вики - Пепельный Рассекатель</title>
 </head>
+<header>
+	<nav class="navbar fixed-top">
+		<ul class="menu d-flex justify-content-center">
+			<li class="menu__item">
+				<a href="../../">
+					JATM Вики
+				</a>
+			</li>
+
+			{% if not name %}
+				<li class="menu__item">
+					<a href="../../account">
+						Логин
+					</a>
+				</li>
+		
+				<li class="menu__item">
+					<a href="../../registration">
+						Создать аккаунт
+					</a>
+				</li>
+			{% endif %}
+	
+			<li class="menu__item">
+				<input type="text" placeholder="Поиск">
+			</li>
+		</ul>
+	</nav>
+</header>
 <body class="heebo-font">
 	<div class="container" id="wiki-pages" style="padding: 2%;">
 		<div class="row">
