@@ -17,7 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Footer.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Common.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/Navbar.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/Feedback.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/MainPage.css' %}">
 
 	<!-- Favicon -->
@@ -29,23 +28,44 @@
 	<nav class="navbar fixed-top">
 		<ul class="menu d-flex justify-content-center">
 			<li class="menu__item">
-				<a href="../../">
+				<a href="{% url 'index' %}">
 					JATM Вики
 				</a>
 			</li>
 
 			{% if not name %}
 				<li class="menu__item">
-					<a href="../../account">
+					<a href="{% url 'account' %}">
 						Логин
 					</a>
 				</li>
 		
 				<li class="menu__item">
-					<a href="../../registration">
+					<a href="{% url 'reg' %}">
 						Создать аккаунт
 					</a>
 				</li>
+
+			{% else %}
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ name }}
+					</button>
+
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="{% url 'personalAccount' %}">Личный кабинет</a>
+						</li>
+
+						<li>
+							<a><hr class="dropdown-divider"></a>
+						</li>
+
+						<li>
+							<a id="logout" class="dropdown-item" href="#">Выйти</a>
+						</li>
+					</ul>
+				</div>
 			{% endif %}
 	
 			<li class="menu__item">
@@ -111,7 +131,7 @@
 				<div class="card-header">                      </div>
 				<img alt="CoolStar" class="card-img-top" src="{% static 'img/CoolStar.png' %}" alt="Star">
 				<div class="card-body">
-					<a href="wiki-pages/CoolStar" class="card-text" align="center">Прикольная Звезда</a>
+					<a href="{% url 'cool_star' %}" class="card-text" align="center">Прикольная Звезда</a>
 				</div>
 			</div>
 
@@ -119,7 +139,7 @@
 				<div class="card-header">                      </div>
 				<img alt="AshSlicer" class="card-img-top" src="{% static 'img/AshSlicer.png' %}" alt="AshSlicer">
 				<div class="card-body">
-					<a href="wiki-pages/AshSlicer" class="card-text" align="center">Пепельный Рассекатель</a>
+					<a href="{% url 'ash_slicer' %}" class="card-text" align="center">Пепельный Рассекатель</a>
 				</div>
 			</div>
 
@@ -127,7 +147,7 @@
 				<div class="card-header">                      </div>
 				<img alt="BloomingCrimtane" class="card-img-top" src="{% static 'img/BloomingCrimtane.png' %}" alt="BloomingCrimtane">
 				<div class="card-body">
-					<a href="wiki-pages/BloomingCrimtane" class="card-text" align="center">Цветущий Кримтан</a>
+					<a href="{% url 'blooming_crimtane' %}" class="card-text" align="center">Цветущий Кримтан</a>
 				</div>
 			</div>
 
@@ -135,7 +155,7 @@
 				<div class="card-header">                      </div>
 				<img alt="Absorber" class="card-img-top" src="{% static 'img/Absorber.png' %}" alt="BloomingCrimtane">
 				<div class="card-body">
-					<a href="wiki-pages/Absorber" class="card-text" align="center">Поглотитель</a>
+					<a href="{% url 'absorber' %}" class="card-text" align="center">Поглотитель</a>
 				</div>
 			</div>
 		</div>
@@ -149,6 +169,6 @@
 
 	<!-- Scripts -->
 	<script type="text/javascript" src="{% static 'js/Common.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/send.js' %}"></script>
+	<script type="text/javascript" src="{% static "js/logout.js" %}"></script>
 </body>
 </html>

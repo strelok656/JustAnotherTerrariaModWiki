@@ -23,22 +23,45 @@
 	<nav class="navbar fixed-top">
 		<ul class="menu d-flex justify-content-center">
 			<li class="menu__item">
-				<a href="../../">
+				<a href="{% url 'index' %}">
 					JATM Вики
 				</a>
 			</li>
 
-			<li class="menu__item">
-				<a href="../../account">
-					Логин
-				</a>
-			</li>
-	
-			<li class="menu__item">
-				<a href="../../registration">
-					Создать аккаунт
-				</a>
-			</li>
+			{% if not name %}
+				<li class="menu__item">
+					<a href="{% url 'account' %}">
+						Логин
+					</a>
+				</li>
+		
+				<li class="menu__item">
+					<a href="{% url 'reg' %}">
+						Создать аккаунт
+					</a>
+				</li>
+
+			{% else %}
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ name }}
+					</button>
+
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="{% url 'personalAccount' %}">Личный кабинет</a>
+						</li>
+
+						<li>
+							<a><hr class="dropdown-divider"></a>
+						</li>
+						
+						<li>
+							<a id="logout" class="dropdown-item" href="#">Выйти</a>
+						</li>
+					</ul>
+				</div>
+			{% endif %}
 	
 			<li class="menu__item">
 				<input type="text" placeholder="Поиск">
@@ -46,27 +69,30 @@
 		</ul>
 	</nav>
 </header>
-<body class="">
-<div class="container">
-	<div class="row">
-		<div class="form-control auth-box">
-			<label class="form-label heebo-font-fat" for="reg-form">Создать аккаунт</label>
-			<div id="reg-form">
-				{% csrf_token %}
-				<input placeholder="Имя пользователя" type="text" name="username" id="username" class="auth-form form-control w-75">
-				<input placeholder="Пароль" type="password" name="password" id="password" class="auth-form form-control w-75">
-				<input placeholder="Имя" type="text" name="name" id="name" class="auth-form form-control w-75">
-				<input placeholder="Фамилия" type="text" name="last_name" id="last-name" class="auth-form form-control w-75">
-				<input placeholder="Почта" type="email" name="email" id="email" class="auth-form form-control w-75">
-				
-				<button id="create-account-button" class="btn btn-primary">Создать аккаунт</button>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="form-control auth-box">
+				<label class="form-label heebo-font-fat" for="reg-form">Создать аккаунт</label>
+				<div id="reg-form">
+					{% csrf_token %}
+					<input placeholder="Имя пользователя" type="text" name="username" id="username" class="auth-form form-control w-75">
+					<input placeholder="Пароль" type="password" name="password" id="password" class="auth-form form-control w-75">
+					<input placeholder="Имя" type="text" name="name" id="name" class="auth-form form-control w-75">
+					<input placeholder="Фамилия" type="text" name="last_name" id="last-name" class="auth-form form-control w-75">
+					<input placeholder="Почта" type="email" name="email" id="email" class="auth-form form-control w-75">
+					
+					<button id="create-account-button" class="btn btn-primary">Создать аккаунт</button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<script type="text/javascript" src="{% static 'Libraries/jquery.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/Common.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/send.js' %}"></script>
+	<script type="text/javascript" src="{% static 'Libraries/bootstrap.bundle.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'Libraries/jquery.js' %}"></script>
+	
+	<script type="text/javascript" src="{% static 'js/Common.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/send.js' %}"></script>
+	<script type="text/javascript" src="{% static "js/logout.js" %}"></script>
 </body>
 </html>

@@ -22,8 +22,58 @@
 	<!-- Favicon -->
 	<link rel="icon" href="{% static 'img/SiteIcon.png' %}">
 
-	<title>#</title>
+	<title>JATM Вики - #</title>
 </head>
+<header>
+	<nav class="navbar fixed-top">
+		<ul class="menu d-flex justify-content-center">
+			<li class="menu__item">
+				<a href="{% url 'index' %}">
+					JATM Вики
+				</a>
+			</li>
+
+			{% if not name %}
+				<li class="menu__item">
+					<a href="{% url 'account' %}">
+						Логин
+					</a>
+				</li>
+		
+				<li class="menu__item">
+					<a href="{% url 'reg' %}">
+						Создать аккаунт
+					</a>
+				</li>
+
+			{% else %}
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ name }}
+					</button>
+
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="{% url 'personalAccount' %}">Личный кабинет</a>
+						</li>
+
+						<li>
+							<a><hr class="dropdown-divider"></a>
+						</li>
+						
+						<li>
+							<a id="logout" class="dropdown-item" href="#">Выйти</a>
+						</li>
+					</ul>
+				</div>
+			{% endif %}
+	
+			<li class="menu__item">
+				<input type="text" placeholder="Поиск">
+			</li>
+		</ul>
+	</nav>
+</header>
 <body class="heebo-font">
 	<div class="container" id="wiki-pages" style="padding: 2%;">
 		<div class="row">
@@ -48,12 +98,12 @@
 					<div class="card-body">
 						{% comment %} An example of what craft looks like 
 						<b style="margin-left: 5%;">
-							<img src="#"> 
-							<a href="#">
-								#
+							<img src="[image of an ingredient]"> 
+							<a href="[link to that ingredient in terraria wiki]">
+								[name of that ingredient]
 							</a>
 						</b> 
-						x #
+						x [amount of that ingredient]
 						<br> 
 						{% endcomment %}
 					</div>
@@ -71,7 +121,10 @@
 		</div>
 	</div>
 
+	<script type="text/javascript" src="{% static 'Libraries/bootstrap.bundle.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'Libraries/jquery.js' %}"></script>
+	
     <script type="text/javascript" src="{% static 'js/Common.js' %}"></script>
+	<script type="text/javascript" src="{% static "js/logout.js" %}"></script>
 </body>
 </html>
