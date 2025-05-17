@@ -4,12 +4,51 @@ from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
-from .models import Wiki_pages
+from .models import Wiki_page, Craft_card
 
 def index(request):
     name = request.user.username
     context = {'name' : name}
     return render(request, 'index.html', context)
+
+def wiki_page(request, name):
+    print(name)
+    wiki_page = get_object_or_404(Wiki_page, pk = name)
+    # craft_card = get_object_or_404(Craft_card, pk = id)
+
+    # try:
+    #     craft_card = wiki_page.choice_set.get(pk = request.POST['choice'])
+    # except (KeyError, Choice.DoesNotExist):
+    #     return render(request, 'detail.html', {
+    #         'question': question,
+    #         'error_message': "Ничего не выбрано!",
+    #     })
+
+    # url_title = wiki_page.url_title
+    # title = wiki_page.title
+    # description = wiki_page.description
+    # item_image_path = wiki_page.item_image_path
+    # placed_or_not = wiki_page.placed_or_not
+    # notes = wiki_page.notes
+    # ingredients = craft_card.ingredients
+    # amount = craft_card.amount
+    # station = craft_card.station
+    # all_craft_cards = craft_card.objects
+
+    context = {
+        # 'url_title' : url_title,
+        # 'title' : title,
+        # 'description' : description,
+        # 'item_image_path' : item_image_path,
+        # 'placed_or_not' : placed_or_not,
+        # 'notes' : notes,
+        # 'ingredients' : ingredients,
+        # 'amount' : amount,
+        # 'station' : station,
+        # 'all_craft_cards' : all_craft_cards
+        'wiki_page' : wiki_page
+    } 
+    return render(request, 'model.html', context)
 
 def account(request):
     name = request.user.username
@@ -35,9 +74,6 @@ def blooming_crimtane(request):
     name = request.user.username
     context = {'name' : name}
     return render(request, 'BloomingCrimtane.html', context)
-
-def wiki_page(request, wiki):
-    wiki_page = get_object_or_404(Wiki_pages, pk = wiki)
 
 def account(request):
     if request.method == 'POST':
@@ -83,6 +119,7 @@ def acc(request):
 
         return render(request, "acc.html", context)
     except AttributeError as e:
+        print(f"Error: {e}")
         return render(request, "acc.html")
 
 @csrf_exempt

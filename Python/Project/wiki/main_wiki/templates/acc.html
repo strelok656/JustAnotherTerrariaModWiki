@@ -61,10 +61,6 @@
 					</ul>
 				</div>
 			{% endif %}
-	
-			<li class="menu__item">
-				<input type="text" placeholder="Поиск">
-			</li>
 		</ul>
 	</nav>
 </header>
@@ -92,11 +88,13 @@
             {% else %}
                 <p>Почта: не записано</p>
             {% endif %}
+
+            <p>Дата регистрации: {{ date_joined }}</p>
         </div>
     </div>
 
-    <script src="{% static 'libs/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'libs/jquery.min.js' %}"></script>
+    <script src="{% static 'Libraries/jquery.js' %}"></script>
+    <script src="{% static 'Libraries/bootstrap.bundle.min.js' %}"></script>
 
     <script type="text/javascript" src="{% static "js/Common.js" %}"></script>
     <script type="text/javascript" src="{% static "js/send.js" %}"></script>

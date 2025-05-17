@@ -22,7 +22,7 @@
 	<!-- Favicon -->
 	<link rel="icon" href="{% static 'img/SiteIcon.png' %}">
 
-	<title>JATM Вики - #</title>
+	<title>JATM Вики - {{ wiki_page.title }}</title>
 </head>
 <header>
 	<nav class="navbar fixed-top">
@@ -67,10 +67,6 @@
 					</ul>
 				</div>
 			{% endif %}
-	
-			<li class="menu__item">
-				<input type="text" placeholder="Поиск">
-			</li>
 		</ul>
 	</nav>
 </header>
@@ -78,15 +74,15 @@
 	<div class="container" id="wiki-pages" style="padding: 2%;">
 		<div class="row">
 			<div class="col-sm-4 card bg-dark" style="width: 20%; margin: 2%;">
-				<img class="card-img-top" src="{% static 'img/#' %}" alt="Cool Star" width="100%" height="100%">
+				<img class="card-img-top" src="{% static item_image_path %}" alt="Cool Star" width="100%" height="100%">
 				<div class="card-body wiki-text">
-					<p>#</p>
+					<p>Ставится ли: {{ wiki_page.placed_or_not }}</p>
 				</div>
 			</div>
 
 			<div class="col-sm-6">
 				<p class="wiki-text">
-					#
+					{{ wiki_page.description }}
 				</p>
 			</div>
 		</div>
@@ -96,16 +92,18 @@
 				<h3>Создание</h3>
 				<div class="cards bg-dark text-white craft">
 					<div class="card-body">
-						{% comment %} An example of what craft looks like 
-						<b style="margin-left: 5%;">
-							<img src="[image of an ingredient]"> 
-							<a href="[link to that ingredient in terraria wiki]">
-								[name of that ingredient]
-							</a>
-						</b> 
-						x [amount of that ingredient]
-						<br> 
-						{% endcomment %}
+						{% comment %} {% if Craft_card %}
+							{% for ingredients in all_craft_cards %}
+							<b style="margin-left: 5%;">
+								{{ all_craft_cards.ingredients }}
+							</b> 
+							x {{ all_craft_cards.amount }}
+							{% endfor %}
+						{% endif %}
+
+						<b style="margin-left: 15%; ">
+							{{ station }}
+						</b> {% endcomment %}
 					</div>
 				</div>
 			</div>
@@ -115,7 +113,7 @@
 			<div class="col-sm">
 				<h2 class="heebo-font-fat">Заметки</h2>
 				<p>
-					#
+					{{ wiki_page.notes }}
 				</p>
 			</div>
 		</div>
