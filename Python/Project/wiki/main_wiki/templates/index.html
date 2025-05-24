@@ -28,20 +28,20 @@
 	<nav class="navbar fixed-top">
 		<ul class="menu d-flex justify-content-center">
 			<li class="menu__item">
-				<a href="{% url 'index' %}">
+				<a href="{% url 'main_wiki:index' %}">
 					JATM Вики
 				</a>
 			</li>
 
 			{% if not name %}
 				<li class="menu__item">
-					<a href="{% url 'account' %}">
+					<a href="{% url 'main_wiki:account' %}">
 						Логин
 					</a>
 				</li>
 		
 				<li class="menu__item">
-					<a href="{% url 'reg' %}">
+					<a href="{% url 'main_wiki:reg' %}">
 						Создать аккаунт
 					</a>
 				</li>
@@ -54,7 +54,7 @@
 
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="{% url 'personalAccount' %}">Личный кабинет</a>
+							<a class="dropdown-item" href="{% url 'main_wiki:personalAccount' %}">Личный кабинет</a>
 						</li>
 
 						<li>
@@ -127,7 +127,7 @@
 				<div class="card-header">                      </div>
 				<img alt="CoolStar" class="card-img-top" src="{% static 'img/CoolStar.png' %}" alt="Star">
 				<div class="card-body">
-					<a href="{% url 'cool_star' %}" class="card-text" align="center">Прикольная Звезда</a>
+					<a href="{% url 'main_wiki:wiki_page' 'CoolStar' %}" class="card-text" align="center">Прикольная Звезда</a>
 				</div>
 			</div>
 
@@ -135,7 +135,7 @@
 				<div class="card-header">                      </div>
 				<img alt="AshSlicer" class="card-img-top" src="{% static 'img/AshSlicer.png' %}" alt="AshSlicer">
 				<div class="card-body">
-					<a href="{% url 'ash_slicer' %}" class="card-text" align="center">Пепельный Рассекатель</a>
+					<a href="{% url 'main_wiki:wiki_page' 'AshSlicer' %}" class="card-text" align="center">Пепельный Рассекатель</a>
 				</div>
 			</div>
 
@@ -143,7 +143,7 @@
 				<div class="card-header">                      </div>
 				<img alt="BloomingCrimtane" class="card-img-top" src="{% static 'img/BloomingCrimtane.png' %}" alt="BloomingCrimtane">
 				<div class="card-body">
-					<a href="{% url 'blooming_crimtane' %}" class="card-text" align="center">Цветущий Кримтан</a>
+					<a href="{% url 'main_wiki:blooming_crimtane' %}" class="card-text" align="center">Цветущий Кримтан</a>
 				</div>
 			</div>
 
@@ -151,7 +151,7 @@
 				<div class="card-header">                      </div>
 				<img alt="Absorber" class="card-img-top" src="{% static 'img/Absorber.png' %}" alt="BloomingCrimtane">
 				<div class="card-body">
-					<a href="{% url 'absorber' %}" class="card-text" align="center">Поглотитель</a>
+					<a href="{% url 'main_wiki:absorber' %}" class="card-text" align="center">Поглотитель</a>
 				</div>
 			</div>
 		</div>

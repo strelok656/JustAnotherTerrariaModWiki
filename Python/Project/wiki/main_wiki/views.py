@@ -11,11 +11,28 @@ def index(request):
     context = {'name' : name}
     return render(request, 'index.html', context)
 
-def wiki_page(request, name):
-    print(name)
-    wiki_page = get_object_or_404(Wiki_page, pk = name)
-    # craft_card = get_object_or_404(Craft_card, pk = id)
+def wiki_page(request, url_title):
+    try:
+        page = Wiki_page.objects.get(url_title = url_title)
+        card = page.craft_cards.all()
 
+        context = {
+            'url_title' : page.title,
+            'title' : page.title,
+            'description' : page.description,
+            'item_image_path' : page.item_image_path,
+            'placed_or_not' : page.placed_or_not,
+            'notes' : page.notes,
+            'cards' : card,
+            'station' : card[0].station
+        } 
+
+        return render(request, 'model.html', context)
+    except (KeyError, Wiki_page.DoesNotExist):
+        return render(request, 'model.html')
+    # card = Craft_card.objects.get(pk = title.id)
+    # test = get_object_or_404(Wiki_page, pk = url_title)
+    # craft_card = get_object_or_404(Craft_card, pk = id)
     # try:
     #     craft_card = wiki_page.choice_set.get(pk = request.POST['choice'])
     # except (KeyError, Choice.DoesNotExist):
@@ -34,21 +51,6 @@ def wiki_page(request, name):
     # amount = craft_card.amount
     # station = craft_card.station
     # all_craft_cards = craft_card.objects
-
-    context = {
-        # 'url_title' : url_title,
-        # 'title' : title,
-        # 'description' : description,
-        # 'item_image_path' : item_image_path,
-        # 'placed_or_not' : placed_or_not,
-        # 'notes' : notes,
-        # 'ingredients' : ingredients,
-        # 'amount' : amount,
-        # 'station' : station,
-        # 'all_craft_cards' : all_craft_cards
-        'wiki_page' : wiki_page
-    } 
-    return render(request, 'model.html', context)
 
 def account(request):
     name = request.user.username

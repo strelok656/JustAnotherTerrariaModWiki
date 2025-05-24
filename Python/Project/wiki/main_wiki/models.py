@@ -17,7 +17,14 @@ from django.db import models
 #     def __str__(self):
 #         return self.craft_text
 
+# class Article(models.Model):
+#     # id = models.IntegerField(unique=True)
+#     url_title = models.CharField(max_length=100)
+#     def __str__(self):
+#         return self.url_title
+
 class Wiki_page(models.Model):
+    # id = models.ForeignKey(Article, on_delete=models.CASCADE)
     url_title = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
@@ -28,7 +35,8 @@ class Wiki_page(models.Model):
         return self.url_title
 
 class Craft_card(models.Model):
-    url_title = models.ForeignKey(Wiki_page, on_delete=models.CASCADE)
-    ingredients = models.CharField(max_length=200)
+    url_title = models.ForeignKey(Wiki_page, on_delete=models.CASCADE, related_name='craft_cards')
+    ingredients_name = models.CharField(max_length=100)
+    ingredients_item_image_path = models.CharField(max_length=100)
     amount = models.IntegerField()
     station = models.CharField(max_length=30)

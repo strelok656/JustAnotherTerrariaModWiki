@@ -22,26 +22,26 @@
 	<!-- Favicon -->
 	<link rel="icon" href="{% static 'img/SiteIcon.png' %}">
 
-	<title>JATM Вики - {{ wiki_page.title }}</title>
+	<title>JATM Вики - {{ title }}</title>
 </head>
 <header>
 	<nav class="navbar fixed-top">
 		<ul class="menu d-flex justify-content-center">
 			<li class="menu__item">
-				<a href="{% url 'index' %}">
+				<a href="{% url 'main_wiki:index' %}">
 					JATM Вики
 				</a>
 			</li>
 
 			{% if not name %}
 				<li class="menu__item">
-					<a href="{% url 'account' %}">
+					<a href="{% url 'main_wiki:account' %}">
 						Логин
 					</a>
 				</li>
 		
 				<li class="menu__item">
-					<a href="{% url 'reg' %}">
+					<a href="{% url 'main_wiki:reg' %}">
 						Создать аккаунт
 					</a>
 				</li>
@@ -54,7 +54,7 @@
 
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="{% url 'personalAccount' %}">Личный кабинет</a>
+							<a class="dropdown-item" href="{% url 'main_wiki:personalAccount' %}">Личный кабинет</a>
 						</li>
 
 						<li>
@@ -76,13 +76,13 @@
 			<div class="col-sm-4 card bg-dark" style="width: 20%; margin: 2%;">
 				<img class="card-img-top" src="{% static item_image_path %}" alt="Cool Star" width="100%" height="100%">
 				<div class="card-body wiki-text">
-					<p>Ставится ли: {{ wiki_page.placed_or_not }}</p>
+					<p>Ставится ли: {{ placed_or_not }}</p>
 				</div>
 			</div>
 
 			<div class="col-sm-6">
 				<p class="wiki-text">
-					{{ wiki_page.description }}
+					{{ description }}
 				</p>
 			</div>
 		</div>
@@ -92,18 +92,20 @@
 				<h3>Создание</h3>
 				<div class="cards bg-dark text-white craft">
 					<div class="card-body">
-						{% comment %} {% if Craft_card %}
-							{% for ingredients in all_craft_cards %}
+						{% if cards %}
+							{% for craft_card in cards %}
 							<b style="margin-left: 5%;">
-								{{ all_craft_cards.ingredients }}
+								<img src="{% static craft_card.ingredients_item_image_path %}"> 
+								{{ craft_card.ingredients_name }}
 							</b> 
-							x {{ all_craft_cards.amount }}
+							x {{ craft_card.amount }}
+							<br>
 							{% endfor %}
 						{% endif %}
 
 						<b style="margin-left: 15%; ">
 							{{ station }}
-						</b> {% endcomment %}
+						</b>
 					</div>
 				</div>
 			</div>
@@ -113,7 +115,7 @@
 			<div class="col-sm">
 				<h2 class="heebo-font-fat">Заметки</h2>
 				<p>
-					{{ wiki_page.notes }}
+					{{ notes }}
 				</p>
 			</div>
 		</div>
