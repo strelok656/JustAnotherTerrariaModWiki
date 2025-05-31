@@ -118,42 +118,21 @@
 	<div class="container" id="forum">
 		<div class="row">
 			<div class="col-lg-12">
-				<p class="heebo-font-fat mt-1" align="center">Количество статей: 4</p>
+				<p class="heebo-font-fat mt-1" align="center">Количество статей: {{ wiki_pages_count }}</p>
 			</div>
 		</div>
-
 		<div class="row" align="center" style="margin-left: 8%;">
-			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
-				<div class="card-header">                      </div>
-				<img alt="CoolStar" class="card-img-top" src="{% static 'img/CoolStar.png' %}" alt="Star">
-				<div class="card-body">
-					<a href="{% url 'main_wiki:wiki_page' 'CoolStar' %}" class="card-text" align="center">Прикольная Звезда</a>
-				</div>
-			</div>
-
-			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
-				<div class="card-header">                      </div>
-				<img alt="AshSlicer" class="card-img-top" src="{% static 'img/AshSlicer.png' %}" alt="AshSlicer">
-				<div class="card-body">
-					<a href="{% url 'main_wiki:wiki_page' 'AshSlicer' %}" class="card-text" align="center">Пепельный Рассекатель</a>
-				</div>
-			</div>
-
-			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
-				<div class="card-header">                      </div>
-				<img alt="BloomingCrimtane" class="card-img-top" src="{% static 'img/BloomingCrimtane.png' %}" alt="BloomingCrimtane">
-				<div class="card-body">
-					<a href="{% url 'main_wiki:blooming_crimtane' %}" class="card-text" align="center">Цветущий Кримтан</a>
-				</div>
-			</div>
-
-			<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
-				<div class="card-header">                      </div>
-				<img alt="Absorber" class="card-img-top" src="{% static 'img/Absorber.png' %}" alt="BloomingCrimtane">
-				<div class="card-body">
-					<a href="{% url 'main_wiki:absorber' %}" class="card-text" align="center">Поглотитель</a>
-				</div>
-			</div>
+			{% if wiki_pages %}
+				{% for wiki_page in wiki_pages %}
+						<div class="col-sm-4 wiki-cards text-white card bg-dark" style="width: 12rem;">
+							<div class="card-header">                      </div>
+							<img alt="{{ wiki_page.url_title }}" class="card-img-top" src="{% static wiki_page.item_image_path %}" alt="Star">
+							<div class="card-body">
+								<a href="{% url 'main_wiki:wiki_page' wiki_page.url_title %}" class="card-text" align="center">{{ wiki_page.title }}</a>
+							</div>
+						</div>
+				{% endfor %}
+			{% endif %}
 		</div>
     </div>
 

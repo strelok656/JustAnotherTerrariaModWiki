@@ -30,13 +30,14 @@ class Wiki_page(models.Model):
     description = models.CharField(max_length=500)
     item_image_path = models.CharField(max_length=100)
     placed_or_not = models.CharField(max_length=3)
-    notes = models.CharField(max_length=500)
+    notes = models.CharField(max_length=500, blank=True)
     def __str__(self):
         return self.url_title
 
 class Craft_card(models.Model):
     url_title = models.ForeignKey(Wiki_page, on_delete=models.CASCADE, related_name='craft_cards')
     ingredients_name = models.CharField(max_length=100)
-    ingredients_item_image_path = models.CharField(max_length=100)
-    amount = models.IntegerField()
-    station = models.CharField(max_length=30)
+    ingredients_item_image_path = models.CharField(max_length=100, blank=True)
+    amount = models.IntegerField(null=True, blank=True)
+    station = models.CharField(max_length=30, blank=True)
+    station_image_path = models.CharField(max_length=50, blank=True)

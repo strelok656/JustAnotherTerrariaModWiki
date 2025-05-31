@@ -7,8 +7,14 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Wiki_page, Craft_card
 
 def index(request):
+    wiki_pages = Wiki_page.objects.all()
+    wiki_pages_quantity = Wiki_page.objects.count()
     name = request.user.username
-    context = {'name' : name}
+    context = {
+        'name' : name,
+        'wiki_pages' : wiki_pages,
+        'wiki_pages_count' : wiki_pages_quantity,
+    }
     return render(request, 'index.html', context)
 
 def wiki_page(request, url_title):
@@ -17,40 +23,19 @@ def wiki_page(request, url_title):
         card = page.craft_cards.all()
 
         context = {
-            'url_title' : page.title,
             'title' : page.title,
             'description' : page.description,
             'item_image_path' : page.item_image_path,
             'placed_or_not' : page.placed_or_not,
             'notes' : page.notes,
             'cards' : card,
-            'station' : card[0].station
+            'station' : card[0].station,
+            'station_image_path' : card[0].station_image_path
         } 
 
         return render(request, 'model.html', context)
     except (KeyError, Wiki_page.DoesNotExist):
-        return render(request, 'model.html')
-    # card = Craft_card.objects.get(pk = title.id)
-    # test = get_object_or_404(Wiki_page, pk = url_title)
-    # craft_card = get_object_or_404(Craft_card, pk = id)
-    # try:
-    #     craft_card = wiki_page.choice_set.get(pk = request.POST['choice'])
-    # except (KeyError, Choice.DoesNotExist):
-    #     return render(request, 'detail.html', {
-    #         'question': question,
-    #         'error_message': "Ничего не выбрано!",
-    #     })
-
-    # url_title = wiki_page.url_title
-    # title = wiki_page.title
-    # description = wiki_page.description
-    # item_image_path = wiki_page.item_image_path
-    # placed_or_not = wiki_page.placed_or_not
-    # notes = wiki_page.notes
-    # ingredients = craft_card.ingredients
-    # amount = craft_card.amount
-    # station = craft_card.station
-    # all_craft_cards = craft_card.objects
+        return render(request, 'index.html')
 
 def account(request):
     name = request.user.username
